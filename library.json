@@ -10,15 +10,15 @@
         "url": "https://github.com/tzapu"
     },
     {
-        "name": "tablatronix",
-        "url": "https://github.com/tablatronix",
+        "name": "kamilake",
+        "url": "https://github.com/Kamilake",
         "maintainer": true
     }
   ],
   "repository":
   {
     "type": "git",
-    "url": "https://github.com/tzapu/WiFiManager.git"
+    "url": "https://github.com/Kamilake/WiFiManager_kami.git"
   },
   "frameworks": "arduino",
   "platforms": 
