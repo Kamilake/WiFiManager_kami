@@ -3,6 +3,7 @@
 <html lang="en">
 	<head>
 		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\"/>
+		<meta charset=\"utf-8\"/>
 		<title>{v}</title>
 <!-- /HTTP_HEAD -->
 <!-- HTTP_STYLE -->
@@ -218,16 +219,16 @@ button:hover{
 			<!-- HTTP_PORTAL_OPTIONS -->
 			<!-- /HTTP_PORTAL_OPTIONS -->
 			<!-- HTTP_PORTAL_MENU[] -->
-			<form action='/wifi' method='get'><button>Configure WiFi</button></form><br/>
-			<form action='/0wifi' method='get'><button>Configure WiFi (No Scan)</button></form><br/>
-			<form action='/info' method='get'><button>Info</button></form><br/>
-			<form action='/param' method='get'><button>Setup</button></form><br/>
+			<form action='/wifi' method='get'><button>Wi-Fi 연결하기</button></form><br/>
+			<form action='/0wifi' method='get'><button>수동으로 Wi-Fi 설정</button></form><br/>
+			<form action='/info' method='get'><button>정보</button></form><br/>
+			<form action='/param' method='get'><button>설정</button></form><br/>
 			<Hr><br/>
-			<form action='/close' method='post'><button>Close</button></form><br/>
-			<form action='/erase' method='post'><button class='D'>Erase</button></form><br/>
-			<form action='/restart' method='post'><button>Restart</button></form><br/>
-			<form action='/exit' method='post'><button>Exit</button></form><br/>
-			<form action='/' method='post'><button>Back</button></form><br/>
+			<form action='/close' method='post'><button>닫기</button></form><br/>
+			<form action='/erase' method='post'><button class='D'>삭제</button></form><br/>
+			<form action='/restart' method='post'><button>재시작</button></form><br/>
+			<form action='/exit' method='post'><button>나가기</button></form><br/>
+			<form action='/' method='post'><button>뒤로</button></form><br/>
 			<!-- /HTTP_PORTAL_MENU -->
 			<!-- SAMPLE -->
 			<h2>/wifi</h2><hr>
@@ -251,7 +252,7 @@ button:hover{
 			<div><a href='#p' onclick='c(this)'>{v}</a><div role='img' aria-label='{r}%' title='{r}%' class='q q-{q} {i}'></div></div>
 			<!-- /HTTP_ITEM -->
 			<!-- HTTP_FORM_START -->
-			<form method='get' action='wifisave'><label for='s'>SSID</label><br/><input id='s' name='s' length=32 placeholder='SSID'><br/><label for='p'>Password</label><input id='p' name='p' length=64 type='password' placeholder='password'><input type='checkbox' onclick='f()'> Show Password<br/>
+			<form method='get' action='wifisave'><label for='s'>Wi-Fi 이름</label><br/><input id='s' name='s' length=32 placeholder='Wi-Fi 이름'><br/><label for='p'>암호</label><input id='p' name='p' length=64 type='password' placeholder='암호'><input type='checkbox' onclick='f()'> 암호 보이기<br/>
 			<!-- /HTTP_FORM_START -->
 			<!-- SAMPLE -->
 			<h3>custom parameter</h3><hr>
@@ -268,7 +269,7 @@ button:hover{
 			<br/><button type='submit'>Save</button></form>
 			<!-- /HTTP_FORM_END -->
 			<!-- HTTP_SCAN_LINK -->
-			<br/><form action='/wifi' method='get'><button>Refresh</button></form>
+			<br/><form action='/wifi' method='get'><button>새로고침</button></form>
 			<!-- /HTTP_SCAN_LINK -->
 			<!-- HTTP_SAVED -->
 			<div class='msg'><h4>Saving Credentials</h4>Trying to connect ESP to network.<br />If it fails reconnect to AP to try again</div>

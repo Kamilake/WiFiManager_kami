@@ -26,7 +26,7 @@ const char HTTP_HEAD_START[]       PROGMEM = "<!DOCTYPE html>"
 "<html lang='en'><head>"
 "<meta name='format-detection' content='telephone=no'>"
 "<meta charset='UTF-8'>"
-"<meta  name='viewport' content='width=device-width,initial-scale=1,user-scalable=no'/>"
+"<meta  name='viewport' content='width=device-width,initial-scale=1,user-scalable=no'/><meta charset=\"utf-8\"/>"
 "<title>{v}</title>";
 
 const char HTTP_SCRIPT[]           PROGMEM = "<script>function c(l){"
