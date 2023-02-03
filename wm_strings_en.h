@@ -43,15 +43,15 @@ const char HTTP_HEAD_END[]         PROGMEM = "</head><body class='{c}'><div clas
 const char HTTP_ROOT_MAIN[]        PROGMEM = "<h1>{t}</h1><h3>{v}</h3>";
 
 const char * const HTTP_PORTAL_MENU[] PROGMEM = {
-"<form action='/wifi'    method='get'><button>Configure WiFi</button></form><br/>\n", // MENU_WIFI
-"<form action='/0wifi'   method='get'><button>Configure WiFi (No scan)</button></form><br/>\n", // MENU_WIFINOSCAN
-"<form action='/info'    method='get'><button>Info</button></form><br/>\n", // MENU_INFO
-"<form action='/param'   method='get'><button>Setup</button></form><br/>\n",//MENU_PARAM
-"<form action='/close'   method='get'><button>Close</button></form><br/>\n", // MENU_CLOSE
-"<form action='/restart' method='get'><button>Restart</button></form><br/>\n",// MENU_RESTART
-"<form action='/exit'    method='get'><button>Exit</button></form><br/>\n",  // MENU_EXIT
-"<form action='/erase'   method='get'><button class='D'>Erase</button></form><br/>\n", // MENU_ERASE
-"<form action='/update'  method='get'><button>Update</button></form><br/>\n",// MENU_UPDATE
+"<form action='/wifi'    method='get'><button>Wi-Fi 연결하기</button></form><br/>\n", // MENU_WIFI
+"<form action='/0wifi'   method='get'><button>수동으로 Wi-Fi 설정</button></form><br/>\n", // MENU_WIFINOSCAN
+"<form action='/info'    method='get'><button>정보</button></form><br/>\n", // MENU_INFO
+"<form action='/param'   method='get'><button>설정</button></form><br/>\n",//MENU_PARAM
+"<form action='/close'   method='get'><button>닫기</button></form><br/>\n", // MENU_CLOSE
+"<form action='/restart' method='get'><button>재시작</button></form><br/>\n",// MENU_RESTART
+"<form action='/exit'    method='get'><button>종료</button></form><br/>\n",  // MENU_EXIT
+"<form action='/erase'   method='get'><button class='D'>지우기</button></form><br/>\n", // MENU_ERASE
+"<form action='/update'  method='get'><button>펌웨어 업데이트</button></form><br/>\n",// MENU_UPDATE
 "<hr><br/>" // MENU_SEP
 };
 
@@ -63,38 +63,38 @@ const char HTTP_ITEM[]             PROGMEM = "<div><a href='#p' onclick='c(this)
 // const char HTTP_ITEM[]            PROGMEM = "<div><a href='#p' onclick='c(this)'>{v}</a> {R} {r}% {q} {e}</div>"; // test all tokens
 
 const char HTTP_FORM_START[]       PROGMEM = "<form method='POST' action='{v}'>";
-const char HTTP_FORM_WIFI[]        PROGMEM = "<label for='s'>SSID</label><input id='s' name='s' maxlength='32' autocorrect='off' autocapitalize='none' placeholder='{v}'><br/><label for='p'>Password</label><input id='p' name='p' maxlength='64' type='password' placeholder='{p}'><input type='checkbox' onclick='f()'> Show Password";
+const char HTTP_FORM_WIFI[]        PROGMEM = "<label for='s'>Wi-Fi 이름</label><input id='s' name='s' maxlength='32' autocorrect='off' autocapitalize='none' placeholder='{v}'><br/><label for='p'>암호</label><input id='p' name='p' maxlength='64' type='password' placeholder='{p}'><input type='checkbox' onclick='f()'> 암호 보이기";
 const char HTTP_FORM_WIFI_END[]    PROGMEM = "";
 const char HTTP_FORM_STATIC_HEAD[] PROGMEM = "<hr><br/>";
-const char HTTP_FORM_END[]         PROGMEM = "<br/><br/><button type='submit'>Save</button></form>";
+const char HTTP_FORM_END[]         PROGMEM = "<br/><br/><button type='submit'>저장!</button></form>";
 const char HTTP_FORM_LABEL[]       PROGMEM = "<label for='{i}'>{t}</label>";
 const char HTTP_FORM_PARAM_HEAD[]  PROGMEM = "<hr><br/>";
 const char HTTP_FORM_PARAM[]       PROGMEM = "<br/><input id='{i}' name='{n}' maxlength='{l}' value='{v}' {c}>\n"; // do not remove newline!
 
-const char HTTP_SCAN_LINK[]        PROGMEM = "<br/><form action='/wifi?refresh=1' method='POST'><button name='refresh' value='1'>Refresh</button></form>";
-const char HTTP_SAVED[]            PROGMEM = "<div class='msg'>Saving Credentials<br/>Trying to connect ESP to network.<br />If it fails reconnect to AP to try again</div>";
+const char HTTP_SCAN_LINK[]        PROGMEM = "<br/><form action='/wifi?refresh=1' method='POST'><button name='refresh' value='1'>다시 검색하기</button></form>";
+const char HTTP_SAVED[]            PROGMEM = "<div class='msg'>잘 저장되었어요!<br/>디바이스가 Wi-Fi 연결에 도전하는 중이에요<br/>만약 실패했다면 이 Wi-Fi로 돌아와서 다시 도전해주세요.</div>";
 const char HTTP_PARAMSAVED[]       PROGMEM = "<div class='msg S'>Saved<br/></div>";
 const char HTTP_END[]              PROGMEM = "</div></body></html>";
 const char HTTP_ERASEBTN[]         PROGMEM = "<br/><form action='/erase' method='get'><button class='D'>Erase WiFi config</button></form>";
 const char HTTP_UPDATEBTN[]        PROGMEM = "<br/><form action='/update' method='get'><button>Update</button></form>";
 const char HTTP_BACKBTN[]          PROGMEM = "<hr><br/><form action='/' method='get'><button>Back</button></form>";
 
-const char HTTP_STATUS_ON[]        PROGMEM = "<div class='msg S'><strong>Connected</strong> to {v}<br/><em><small>with IP {i}</small></em></div>";
-const char HTTP_STATUS_OFF[]       PROGMEM = "<div class='msg {c}'><strong>Not connected</strong> to {v}{r}</div>"; // {c=class} {v=ssid} {r=status_off}
-const char HTTP_STATUS_OFFPW[]     PROGMEM = "<br/>Authentication failure"; // STATION_WRONG_PASSWORD,  no eps32
-const char HTTP_STATUS_OFFNOAP[]   PROGMEM = "<br/>AP not found";   // WL_NO_SSID_AVAIL
-const char HTTP_STATUS_OFFFAIL[]   PROGMEM = "<br/>Could not connect"; // WL_CONNECT_FAILED
-const char HTTP_STATUS_NONE[]      PROGMEM = "<div class='msg'>No AP set</div>";
+const char HTTP_STATUS_ON[]        PROGMEM = "<div class='msg S'>{v}에 <strong>연결됨</strong><br/><em><small>IP: {i}</small></em></div>";
+const char HTTP_STATUS_OFF[]       PROGMEM = "<div class='msg {c}'><strong>Wi-Fi에 연결되지 않음<br></strong>{v} 네트워크에 연결할 수 없어요: {r}</div>"; // {c=class} {v=ssid} {r=status_off}
+const char HTTP_STATUS_OFFPW[]     PROGMEM = "<br/>암호가 잘못된 것 같아요."; // STATION_WRONG_PASSWORD,  no eps32
+const char HTTP_STATUS_OFFNOAP[]   PROGMEM = "<br/>Wi-Fi 공유기를 찾을 수 없어요.";   // WL_NO_SSID_AVAIL
+const char HTTP_STATUS_OFFFAIL[]   PROGMEM = "<br/>Wi-Fi 공유기에 연결할 수 없어요."; // WL_CONNECT_FAILED
+const char HTTP_STATUS_NONE[]      PROGMEM = "<div class='msg'>설정된 Wi-Fi가 없어요.</div>";
 const char HTTP_BR[]               PROGMEM = "<br/>";
 
 const char HTTP_STYLE[]            PROGMEM = "<style>"
 ".c,body{text-align:center;font-family:verdana}div,input,select{padding:5px;font-size:1em;margin:5px 0;box-sizing:border-box}"
 "input,button,select,.msg{border-radius:.3rem;width: 100%}input[type=radio],input[type=checkbox]{width:auto}"
-"button,input[type='button'],input[type='submit']{cursor:pointer;border:0;background-color:#1fa3ec;color:#fff;line-height:2.4rem;font-size:1.2rem;width:100%}"
-"input[type='file']{border:1px solid #1fa3ec}"
+"button,input[type='button'],input[type='submit']{cursor:pointer;border:0;background-color:#9d5cd4;color:#fff;line-height:2.4rem;font-size:1.2rem;width:100%}"
+"input[type='file']{border:1px solid #9d5cd4}"
 ".wrap {text-align:left;display:inline-block;min-width:260px;max-width:500px}"
 // links
-"a{color:#000;font-weight:700;text-decoration:none}a:hover{color:#1fa3ec;text-decoration:underline}"
+"a{color:#000;font-weight:700;text-decoration:none}a:hover{color:#9d5cd4;text-decoration:underline}"
 // quality icons
 ".q{height:16px;margin:0;padding:0 5px;text-align:right;min-width:38px;float:right}.q.q-0:after{background-position-x:0}.q.q-1:after{background-position-x:-16px}.q.q-2:after{background-position-x:-32px}.q.q-3:after{background-position-x:-48px}.q.q-4:after{background-position-x:-64px}.q.l:before{background-position-x:-80px;padding-right:5px}.ql .q{float:left}.q:after,.q:before{content:'';width:16px;height:16px;display:inline-block;background-repeat:no-repeat;background-position: 16px 0;"
 "background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAAQCAMAAADeZIrLAAAAJFBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADHJj5lAAAAC3RSTlMAIjN3iJmqu8zd7vF8pzcAAABsSURBVHja7Y1BCsAwCASNSVo3/v+/BUEiXnIoXkoX5jAQMxTHzK9cVSnvDxwD8bFx8PhZ9q8FmghXBhqA1faxk92PsxvRc2CCCFdhQCbRkLoAQ3q/wWUBqG35ZxtVzW4Ed6LngPyBU2CobdIDQ5oPWI5nCUwAAAAASUVORK5CYII=');}"
@@ -103,7 +103,7 @@ const char HTTP_STYLE[]            PROGMEM = "<style>"
 "background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALwAAAAgCAMAAACfM+KhAAAALVBMVEX///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAOrOgAAAADnRSTlMAESIzRGZ3iJmqu8zd7gKjCLQAAACmSURBVHgB7dDBCoMwEEXRmKlVY3L//3NLhyzqIqSUggy8uxnhCR5Mo8xLt+14aZ7wwgsvvPA/ofv9+44334UXXngvb6XsFhO/VoC2RsSv9J7x8BnYLW+AjT56ud/uePMdb7IP8Bsc/e7h8Cfk912ghsNXWPpDC4hvN+D1560A1QPORyh84VKLjjdvfPFm++i9EWq0348XXnjhhT+4dIbCW+WjZim9AKk4UZMnnCEuAAAAAElFTkSuQmCC');"
 "background-size: 95px 16px;}}"
 // msg callouts
-".msg{padding:20px;margin:20px 0;border:1px solid #eee;border-left-width:5px;border-left-color:#777}.msg h4{margin-top:0;margin-bottom:5px}.msg.P{border-left-color:#1fa3ec}.msg.P h4{color:#1fa3ec}.msg.D{border-left-color:#dc3630}.msg.D h4{color:#dc3630}.msg.S{border-left-color: #5cb85c}.msg.S h4{color: #5cb85c}"
+".msg{padding:20px;margin:20px 0;border:1px solid #eee;border-left-width:5px;border-left-color:#777}.msg h4{margin-top:0;margin-bottom:5px}.msg.P{border-left-color:#9d5cd4}.msg.P h4{color:#9d5cd4}.msg.D{border-left-color:#dc3630}.msg.D h4{color:#dc3630}.msg.S{border-left-color: #5cb85c}.msg.S h4{color: #5cb85c}"
 // lists
 "dt{font-weight:bold}dd{margin:0;padding:0 0 0.5em 0;min-height:12px}"
 "td{vertical-align: top;}"
@@ -220,7 +220,7 @@ const char HTTP_INFO_aboutarduino[] PROGMEM = "<dt>Arduino</dt><dd>{1}</dd>";
 const char HTTP_INFO_aboutsdk[]     PROGMEM = "<dt>ESP-SDK/IDF</dt><dd>{1}</dd>";
 const char HTTP_INFO_aboutdate[]    PROGMEM = "<dt>Build date</dt><dd>{1}</dd>";
 
-const char S_brand[]              PROGMEM = "WiFiManager";
+const char S_brand[]              PROGMEM = "FineMotion";
 const char S_debugPrefix[]        PROGMEM = "*wm:";
 const char S_y[]                  PROGMEM = "Yes";
 const char S_n[]                  PROGMEM = "No";
